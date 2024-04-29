@@ -16,27 +16,26 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="#">Your Brand</a>
+            <a class="navbar-brand" href="https://www.purdue.edu/">
+                <img src="images/purdue.png" alt="Purdue Logo" height="30">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" style="color: black"></span>
             </button>
-    
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="computing.html">Applied Computing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="https://github.com/rglopezIU/finalProjectCIT312">Repo</a>
                     </li>
                 </ul>
             </div>
@@ -44,47 +43,63 @@
     </nav>
     <!-- End Navbar -->
 
-    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <!-- Content -->
+    <div class="content">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
+                    <a href="https://et.iupui.edu/departments/cigt/programs/cit/undergrad/bscit/software" 
+                    class="card-link">
                     <div class="card">
                         <img src="images/software.png" class="card-img-top" alt="Software">
                         <div class="card-body">
-                            <h2 class="card-title">Software</h5>
+                            <h2 class="card-title">Software</h2>
                         </div>
                     </div>
+                    </a>
                 </div>
                 <div class="col-md-6">
+                    <a href="https://et.iupui.edu/departments/cigt/programs/cit/undergrad/bscit/networking" 
+                    class="card-link">
                     <div class="card">
                         <img src="images/networking.png" class="card-img-top" alt="Networking">
                         <div class="card-body">
-                            <h2 class="card-title">Networking</h5>
+                            <h2 class="card-title">Networking</h2>
                         </div>
                     </div>
+                    </a>
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="col-md-6">
+                    <a href="https://et.iupui.edu/departments/cigt/programs/cit/undergrad/bscit/data" 
+                    class="card-link">
                     <div class="card">
                         <img src="images/datamanage.png" class="card-img-top" alt="Data Management">
                         <div class="card-body">
-                            <h2 class="card-title">Data Management</h5>
+                            <h2 class="card-title">Data Management</h2>
                         </div>
                     </div>
+                    </a>
                 </div>
                 <div class="col-md-6">
+                    <a href="https://et.iupui.edu/departments/cigt/programs/cit/undergrad/bscit/security" 
+                    class="card-link">
                     <div class="card">
                         <img src="images/cybersecurity.png" class="card-img-top" alt="Cybersecurity">
                         <div class="card-body">
-                            <h2 class="card-title">Cybersecurity</h5>
+                            <h2 class="card-title">Cybersecurity</h2>
                         </div>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+    <!-- End Content -->
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
