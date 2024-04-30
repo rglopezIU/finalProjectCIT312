@@ -110,3 +110,17 @@ ul li {
 #popup-definition {
     margin-top: 10px;
 }
+
+/* quiz */
+.option-box {
+    border: 5px solid black;
+    background-color: #000000;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.option-box:hover {
+    background-color: #cfb991;
+    
+}

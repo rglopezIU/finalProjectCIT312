@@ -1,107 +1,116 @@
 // Quiz Portion
 // Ruben Lopez
 // questions for user
-const questions = [
+const quizQuestions  = [
     {
         question: "Which job focuses primarily on iPhone apps?",
         options: ["Mobile Apps Developer", "Web Developer", "Data Analyst", "Network Administrator"],
-        correctAnswer: "Mobile Apps Developer"
+        answer: 0
     },
     {
         question: "Which job is responsible for managing and maintaining databases?",
         options: ["Software Developer", "Database Administrator", "Cybersecurity Expert", "Full Stack Developer"],
-        correctAnswer: "Database Administrator"
+        answer: 1
     },
     {
         question: "Which job focuses on securing computer systems and networks?",
         options: ["Web Developer", "Database Administrator", "Cybersecurity Expert", "Mobile Apps Developer"],
-        correctAnswer: "Cybersecurity Expert"
+        answer: 2
     },
     {
         question: "Which job involves writing code for websites or web applications?",
         options: ["Data Analyst", "Web Programmer", "Technical Writer", "Software Developer"],
-        correctAnswer: "Web Programmer"
+        answer: 1
     },
     {
         question: "Which job involves analyzing and interpreting data to gain insights?",
         options: ["Consultant", "Data Analyst", "UX/UI Designer", "Web Developer"],
-        correctAnswer: "Data Analyst"
+        answer: 1
     },
     {
         question: "Which job involves creating and designing the visual aspects of a website or application?",
         options: ["Coder", "UX/UI Designer", "Network Administrator", "Test Engineer"],
-        correctAnswer: "UX/UI Designer"
+        answer: 1
     },
     {
         question: "Which job involves testing software for bugs and errors?",
         options: ["Full Stack Developer", "Coder", "Test Engineer", "Industry Analyst"],
-        correctAnswer: "Test Engineer"
+        answer: 2
     },
     {
         question: "Which job focuses on designing and implementing computer networks?",
         options: ["Hardware Engineer", "Network Administrator", "Games Developer", "Chief Information Officer"],
-        correctAnswer: "Network Administrator"
+        answer: 1
     },
     {
         question: "Which job involves writing code for both the front-end and back-end of a website?",
         options: ["Web Architect", "Industry Analyst", "Full Stack Developer", "Technical Writer"],
-        correctAnswer: "Full Stack Developer"
+        answer: 2
     },
     {
         question: "Which job involves researching and analyzing data to solve complex problems?",
         options: ["Data Research Scientist", "Games Developer", "Consultant", "Security Analyst"],
-        correctAnswer: "Data Research Scientist"
+        answer: 0
     }
 ];
 
-// setting a counter
+// Initialize variables
+let currentQuestionIndex = 0;
 let score = 0;
+const quizContainer = document.getElementById("quiz-container");
+const resultContainer = document.getElementById("result-container");
 
-// display each question
-function displayQuestions() {
-    const quizContainer = document.getElementById('quiz-container');
-    questions.forEach((q, index) => {
-        const questionElement = document.createElement('div');
-        questionElement.innerHTML = `<p>${index + 1}. ${q.question}</p>`;
-        q.options.forEach(option => {
-            const radioBtn = document.createElement('input');
-            radioBtn.type = 'radio';
-            radioBtn.name = 'question' + index;
-            radioBtn.value = option;
-            questionElement.appendChild(radioBtn);
 
-            const label = document.createElement('label');
-            label.textContent = option;
-            questionElement.appendChild(label);
-            questionElement.appendChild(document.createElement('br'));
+
+// Function to display current question
+function displayQuestion() {
+    const currentQuestion = quizQuestions[currentQuestionIndex];
+    quizContainer.innerHTML = `
+        <h3>${currentQuestion.question}</h3>
+        <ul>
+            ${currentQuestion.options.map((option, index) => `
+                <li class="option-box" data-index="${index}">
+                    ${option}
+                </li>
+            `).join("")}
+        </ul>
+    `;
+    const options = document.querySelectorAll(".option-box");
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            const selectedIndex = parseInt(option.getAttribute("data-index"));
+            checkAnswer(selectedIndex);
         });
-        quizContainer.appendChild(questionElement);
     });
 }
 
-// function to calculate score
-function calculateScore() {
-    const resultContainer = document.getElementById('result-container');
-    let userAnswers = [];
-    for (let i = 0; i < questions.length; i++) {
-        const selectedOption = document.querySelector('input[name="question' + i + '"]:checked');
-        if (selectedOption) {
-            userAnswers.push(selectedOption.value);
-            if (selectedOption.value === questions[i].correctAnswer) {
-                score++;
-            }
-        }
+// Function to check user's answer
+function checkAnswer(selectedIndex) {
+    const correctAnswer = quizQuestions[currentQuestionIndex].answer;
+    if (selectedIndex === correctAnswer) {
+        score++;
     }
-    const scorePercentage = (score / questions.length) * 100;
-    resultContainer.innerHTML = `<p>Your score: ${score} out of ${questions.length}</p>`;
-    resultContainer.innerHTML += `<p>Percentage: ${scorePercentage}%</p>`;
-    score = 0; // Reset score for next attempt
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizQuestions.length) {
+        displayQuestion();
+    } else {
+        displayResult();
+    }
 }
 
-window.onload = function () {
-    displayQuestions();
-    const submitBtn = document.getElementById('submit-btn');
-    submitBtn.addEventListener('click', () => {
-        calculateScore();
+// Function to display quiz result
+function displayResult() {
+    const percentageScore = (score / quizQuestions.length) * 100;
+    resultContainer.innerHTML = `
+        <h3>Quiz Result</h3>
+        <p>Your score: ${score}/${quizQuestions.length} (${percentageScore}%)</p>
+        <button id="retry-btn" class="btn btn-primary">Try Again</button>
+    `;
+    submitBtn.style.display = "none";
+    document.getElementById("retry-btn").addEventListener("click", () => {
+        window.location.href = "quiz.html"; 
     });
-};
+}
+
+// Display first question
+displayQuestion();
