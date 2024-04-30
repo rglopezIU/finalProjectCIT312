@@ -1,8 +1,8 @@
-## Documentation
-## Ruben Lopez
-## Final Project CIT 312
+# Documentation
+# Ruben Lopez
+# Final Project CIT 312
 
-# Introduction
+## Introduction
 This document provides an overview of the key features and implementation details of a responsive website developed using Bootstrap framework, CSS styling, and some Javascript.
 
 Responsiveness in my project is primarily achieved through the use of Bootstrap's grid system. Bootstrap's grid system ensures a flexible and responsive layout that adapts to different screen sizes. But also ensuring that the content is correctly placed in the correct classes (content, container, card), greatly helps with any overlappping issues that are commonly caught
