@@ -1,82 +1,81 @@
 /* CSS Style */
 /* By Ruben Lopez */
 
+/* navbar css styling */
 .navbar {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
 }
-
 .navbar-custom {
     background-color: #cfb991;
 }
-
 .navbar-brand {
     margin-right: auto;
 }
 
+/* standard color for all pages */
 body {
     background-color: #555960;
     padding-top: 25px;
 }
 
+/* just needed to create spacing between navbar */
 .content {
     padding-top: 100px;
 }
 
+/* card display */
 .card {
     border: 6px solid #000000;
     border-radius: 10px;
     padding: 20px;
     background-color: #cfb991;
 }
+/* remove the standard hyperlink view */
 .card-link {
     text-decoration: none;
     color: inherit;
 }
-
 .container {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
 .container-fluid {
     height: 175vh;
 }
-
+/* force images to not be past a certain size */
 .custom-img {
     width: 130px;
     height: 120px;
     object-fit: cover;
 }
 
+/* styling for the terms on the second page */
 .row {
     display: flex;
     flex-wrap: wrap;
 }
-
 .col {
     width: 50%;
 }
-
 ul {
     list-style: none;
 }
-
 ul li {
     margin-bottom: 10px;
     color: white;
     font-size: x-large;
     font-weight: 300;
 }
-
 .term {
     cursor: pointer;
 }
 
+/* make the popup appeal a bit better to user */
 .popup {
     display: none;
     position: fixed;
@@ -91,11 +90,9 @@ ul li {
     max-width: 400px;
     width: 100%;
 }
-
 .popup-content {
     position: relative;
 }
-
 .close {
     position: absolute;
     top: 10px;
@@ -104,15 +101,12 @@ ul li {
     cursor: pointer;
     color: #aaa;
 }
-
 .close:hover {
     color: #333;
 }
-
 #popup-term {
     margin-top: 0;
 }
-
 #popup-definition {
     margin-top: 10px;
 }

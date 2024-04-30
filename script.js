@@ -1,14 +1,14 @@
 // Javascript File
 // By Ruben Lopez
 
-
+// functionality for the javascript script
 const terms = document.querySelectorAll('.term');
 const popup = document.getElementById('popup');
 const popupTerm = document.getElementById('popup-term');
 const popupDefinition = document.getElementById('popup-definition');
 const closeBtn = document.querySelector('.close');
 
-
+// this information pulls the definitions of the terms which are then appear in the popup
 const definitions = {
     "mobile apps developer": "A mobile app developer is a software engineer who specializes in creating applications for mobile devices.",
     "dev ops engineer": "A DevOps engineer is responsible for bridging the gap between development and operations teams by overseeing the code releases and ensuring smooth deployment and operation of software.",
@@ -35,7 +35,7 @@ const definitions = {
     "data research scientist": "A data research scientist is a professional who uses scientific methods and techniques to analyze and interpret data, conduct research, and develop insights and solutions to complex problems.",
 };
 
-
+// function that pulls the definition per the term selected (per click)
 terms.forEach(term => {
     term.addEventListener('click', () => {
         const termText = term.textContent;
@@ -45,6 +45,7 @@ terms.forEach(term => {
     });
 });
 
+// function for closing the popup
 closeBtn.addEventListener('click', () => {
     popup.style.display = 'none';
 });
