@@ -84,6 +84,20 @@ function displayQuestion() {
     });
 }
 
+// Function to display quiz result
+function displayResult() {
+    const percentageScore = (score / quizQuestions.length) * 100;
+    resultContainer.innerHTML = `
+        <h3>Quiz Result</h3>
+        <p>Your score: ${score}/${quizQuestions.length} (${percentageScore}%)</p>
+        <button id="retry-btn" class="btn btn-primary">Try Again</button>
+    `;
+    const retryBtn = document.getElementById("retry-btn");
+    retryBtn.addEventListener("click", () => {
+        location.reload(); // Refresh the page to start the quiz again
+    });
+}
+
 // Function to check user's answer
 function checkAnswer(selectedIndex) {
     const correctAnswer = quizQuestions[currentQuestionIndex].answer;
@@ -96,20 +110,6 @@ function checkAnswer(selectedIndex) {
     } else {
         displayResult();
     }
-}
-
-// Function to display quiz result
-function displayResult() {
-    const percentageScore = (score / quizQuestions.length) * 100;
-    resultContainer.innerHTML = `
-        <h3>Quiz Result</h3>
-        <p>Your score: ${score}/${quizQuestions.length} (${percentageScore}%)</p>
-        <button id="retry-btn" class="btn btn-primary">Try Again</button>
-    `;
-    submitBtn.style.display = "none";
-    document.getElementById("retry-btn").addEventListener("click", () => {
-        window.location.href = "quiz.html"; 
-    });
 }
 
 // Display first question
